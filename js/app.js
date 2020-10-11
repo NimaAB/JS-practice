@@ -1,27 +1,24 @@
 
 //loading segmensts to index.html:
-const writeSection = (element,path)=>{
+const writeSection = (name,element,path)=>{
   const section = document.querySelector(element);
-  section.innerHTML = load(path);
+  section.innerHTML = load(name,path);
 }
 
-const load =function(path){
-  //let fs = require('fs')
-  let fr = new FileReader();
-
-  try{
-    fr.readAsBinaryString(path);
-    
-  }catch (e){
-    e;
-  }
-  return fr.result;
+const load =function(name,path){
+  let file = new File([{name}],path,{
+    type:'html',
+  });
+  let fr = new FileReader(); 
+  fr.readAsBinaryString(file);
+  console.log(fr)
+  return fr.result.toString; 
 }
-console.log(load('/html/sec/footer.html'));
+console.log(load('/html/sec/footer.txt'));
 const app = () => {
   //navFunc();
-  writeSection('.header-place','/html/sec/header.html');
-  writeSection('.footer-place','/html/sec/footer.html');
+  writeSection('header','.header-place','/html/sec/header.html');
+  writeSection('footer','.footer-place','/html/sec/footer.html');
 }
 app();
 
