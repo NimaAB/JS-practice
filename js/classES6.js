@@ -14,4 +14,6 @@ class Person {
     getBirthYear(){
         return this.dOBirth.getFullYear();
     }
+    //Static methode: 
+    //for implementing a static methode we use the static keyword. 
 }
