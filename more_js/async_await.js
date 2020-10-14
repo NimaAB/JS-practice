@@ -5,7 +5,7 @@ function getPost(){
         let output = ''; 
         posts.forEach((post)=>{
             output += `<li>${post.title}</li>`;
-        }); 
+        });
         document.body.innerHTML = output;
     },1000);
 }
@@ -25,12 +25,14 @@ function creatPost(post){
     });
 }
 
+//this method handles the promise from createPost() 
+// by using async and await keywords.
 async function init(){
     await creatPost({id:3,title:'post three',body:'Hello again!'});
 
     getPost(); 
 }
-init();
+init();//calling the method.
 
 //async await with fetch: 
 async function fetchUsers(){
