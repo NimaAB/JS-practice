@@ -1,0 +1,19 @@
+@use 'base';
+
+*{
+    margin:0; 
+    padding:0; 
+    box-sizing: border-box;
+}
+body{
+    font-size: 100%;
+    font-family: base.$font-stack;
+    background-color: base.$primery-body-color;
+}
+.main{
+    background-color: base.$primery-main-color;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5,1fr);
+}
