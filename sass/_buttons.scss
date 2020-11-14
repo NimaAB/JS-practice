@@ -1,7 +1,16 @@
+@import 'config';
 %btns{
-    font-weight: 500;
+    font-weight: bold;
+    font-size: 1.2rem;
+    background-color: $btn-color;
+    color: $btn-text-color;
+    text-align: center;
+    padding: 10px;
 }
 
 .btn{
     @extend %btns;
+}
+.btn:hover{
+    background-color: lighter($btn-color,3%);
 }
