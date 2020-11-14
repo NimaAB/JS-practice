@@ -1,4 +1,8 @@
-@use 'base';
+@import 'config';
+@import 'utils';
+@import 'base'; 
+@import 'buttons';
+@import 'rows';
 
 *{
     margin:0; 
@@ -7,13 +11,25 @@
 }
 body{
     font-size: 100%;
-    font-family: base.$font-stack;
-    background-color: base.$primery-body-color;
+    font-family: $font-stack;
+    background-color: $primery-body-color;
+    
 }
-.main{
-    background-color: base.$primery-main-color;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(5,1fr);
+.wrapper{
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    .main{
+        background-color: $primery-main-color;
+        width: 40vw;
+        height: 40vh;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5,1fr);
+        margin: auto;
+
+        .output{
+          
+        }
+    }
 }

@@ -1,0 +1,7 @@
+%btns{
+    font-weight: 500;
+}
+
+.btn{
+    @extend %btns;
+}
