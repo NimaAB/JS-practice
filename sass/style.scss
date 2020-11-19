@@ -27,9 +27,20 @@ body{
         grid-template-columns: 1fr;
         grid-template-rows: repeat(5,1fr);
         margin: auto;
-
-        .output{
-          
+        .result{
+            @extend %output;
+            font-size: 2em;
+            text-align: end;
+        }
+        .asked{
+            @extend %output;
+            font-size: 1.3em;
+            text-align: end;
         }
     }
 }
+
+%output {
+    color: $output-text-color;
+}
+

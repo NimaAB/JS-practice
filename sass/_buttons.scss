@@ -1,16 +1,18 @@
 @import 'config';
-%btns{
+@import 'config'; 
+
+
+.btn{
+    display: block;
     font-weight: bold;
     font-size: 1.2rem;
     background-color: $btn-color;
     color: $btn-text-color;
     text-align: center;
     padding: 10px;
-}
-
-.btn{
-    @extend %btns;
+    cursor: pointer;
+    border: solid 1px whitesmoke; 
 }
 .btn:hover{
-    background-color: lighter($btn-color,3%);
+    background-color: lighter($btn-color,10%);
 }
