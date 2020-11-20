@@ -11,7 +11,9 @@ class Calculator{
         this.curContent = '';
         this.operation = undefined;
     }
-    clear(){}
+    clear(){
+        this.curContent = this.curContent.toString().slice(0,-1);
+    }
     calulate(){
         let result; 
         const prevNum = parseFloat(this.prevContent);
@@ -52,7 +54,11 @@ class Calculator{
     }
     updateDisplay(){
         this.curDisplay.innerText = this.curContent;
-        this.prevDisplay.innerText = this.prevContent;
+        if(this.operation!=null){
+            this.prevDisplay.innerText = `${this.prevContent} ${this.operation}`;
+        }else{
+            this.prevDisplay.innerText = this.prevContent;
+        }
     }
 }
 export {Calculator};
