@@ -56,10 +56,20 @@ clearBtn.addEventListener('click',()=>{
 
 
 //night mode:
-import primeryBodyColor from './sass/_config.scss';
-const colormode = document.querySelector('.colormode'); 
-colormode.addEventListener('click',colorMode()); 
+const toggle = document.querySelector('#switch');
+toggle.addEventListener('change',()=>{
+    transition();
+    if(toggle.checked){
+        document.documentElement.setAttribute('data-theme','dark');
+    }else{
+        
+        document.documentElement.setAttribute('data-theme','light');
+    }
+})
+const transition = ()=>{
+    document.documentElement.classList.add('transition');
+    window.setTimeout(()=>{
+        document.documentElement.classList.remove('transition');
+    },1000);
 
-function colorMode(){
-    primeryBodyColor.primeryBodyColor = '#fff'; 
 }

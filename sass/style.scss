@@ -1,19 +1,40 @@
-@import 'config'; 
+@import 'config';
 
 *{
     margin:0; 
     padding:0; 
     box-sizing: border-box;
 }
+html{ 
+    --body-color: #fff;
+    --btn-text-color: rgb(26, 100, 124);
+    --btn-color:  whitesmoke;;
+    --btn-hover-color: lightblue;
+    --btn-border-color: white;
+    --output-text-color:  rgb(26, 100, 124);
+    --output-background-color: lightblue;
+}
+html[data-theme='dark']{
+    --body-color:#000;
+    --btn-text-color: rgb(217, 239, 247);
+    --btn-color:  rgb(60, 94, 114);
+    --btn-hover-color: rgb(60, 94, 114);
+    --btn-border-color: black;
+    --output-text-color: rgb(195, 225, 235);
+    --output-background-color:rgb(3, 77, 102);
+}
 body{
     font-size: 100%;
     font-family: $font-stack;
-    background-color: $primery-body-color;
+    background-color: var(--body-color);
 }
 .colormode{
-    color: $btn-text-color;
+    color: var(--btn-text-color);
     font-weight:bold;
     font-size: 1.2rem;
+    input{
+        display:none;
+    }
 }
 
 .grid-container{
@@ -27,14 +48,14 @@ body{
     button{
         font-weight: bold;
         font-size: 1.6rem;
-        color: $btn-text-color;
-        background-color: $btn-color;
-        border: solid 2px $btn-border-color; 
+        color: var(--btn-text-color);
+        background-color: var(--btn-color);
+        border: solid 2px var(--btn-border-color); 
         outline: none;
         cursor: pointer;
     }
     button:hover{
-        background-color: $btn-hover-color;
+        background-color: var(--btn-hover-color);
     }
     .two-col{
         grid-column: span 2;
@@ -45,9 +66,9 @@ body{
         flex-direction: column;
         justify-content: space-around;
         align-items: flex-end;
-        background-color: $output-background-color;
+        background-color: var(--output-background-color);
         padding: 10px;
-        color: $output-text-color;
+        color: var(--output-text-color);
         font-weight: 600;
         .prevOutput{
             font-size: 1.2rem;
@@ -58,3 +79,15 @@ body{
     }
 }
 
+//transitioning:
+html.transition,
+html.transition *,
+html.transition *:before,
+html.transition *:after{
+    transition: all 750ms !important;
+    transition-delay: 0 !important;
+    -webkit-transition: all 750ms !important;
+    -moz-transition: all 750ms !important;
+    -ms-transition: all 750ms !important;
+    -o-transition: all 750ms !important;
+}

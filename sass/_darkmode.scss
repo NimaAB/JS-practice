@@ -1,0 +1,41 @@
+
+@function set-text-color($background-color){
+    @if(lightness($background-color)>70){
+        @return rgb(26, 100, 124);
+    }
+    @else{
+        @return rgb(195, 225, 235);
+    }
+}
+@function set-btn-color($background-color){
+    @if(lightness($background-color)>70){
+        @return  whitesmoke;
+    }
+    @else{
+        @return  rgb(60, 94, 114);
+    }
+}
+@function set-btn-hover($background-color){
+    @if(lightness($background-color)>70){
+        @return  lighten(lightblue,10%);
+    }
+    @else{
+        @return lighten(rgb(60, 94, 114),10%);
+    }
+}
+@function set-btn-border-color($background-color){
+    @if(lightness($background-color)>70){
+        @return  white;
+    }
+    @else{
+        @return black;
+    }
+}
+@function set-display-color($background-color){
+    @if(lightness($background-color)>70){
+        @return  lighten(lightblue,10%);
+    }
+    @else{
+        @return lighten(rgb(3, 77, 102),10%);
+    }
+}
