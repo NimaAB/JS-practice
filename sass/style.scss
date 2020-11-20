@@ -1,8 +1,4 @@
-@import 'config';
-@import 'utils';
-@import 'base'; 
-@import 'buttons';
-@import 'rows';
+@import 'config'; 
 
 *{
     margin:0; 
@@ -13,6 +9,11 @@ body{
     font-size: 100%;
     font-family: $font-stack;
     background-color: $primery-body-color;
+}
+.colormode{
+    color: $btn-text-color;
+    font-weight:bold;
+    font-size: 1.2rem;
 }
 
 .grid-container{
@@ -26,13 +27,14 @@ body{
     button{
         font-weight: bold;
         font-size: 1.6rem;
-        color:rgb(26, 100, 124);
-        border: solid 2px whitesmoke; 
+        color: $btn-text-color;
+        background-color: $btn-color;
+        border: solid 2px $btn-border-color; 
         outline: none;
         cursor: pointer;
     }
     button:hover{
-        background-color: lightblue;
+        background-color: $btn-hover-color;
     }
     .two-col{
         grid-column: span 2;
@@ -43,17 +45,15 @@ body{
         flex-direction: column;
         justify-content: space-around;
         align-items: flex-end;
-        background-color: lighten(lightblue,10%);
+        background-color: $output-background-color;
         padding: 10px;
+        color: $output-text-color;
+        font-weight: 600;
         .prevOutput{
             font-size: 1.2rem;
-            font-weight: 600;
-            color: rgba(41, 4, 109,0.7);
         }
         .curOutput{
             font-size: 1.8rem;
-            font-weight: 600;
-            color: rgba(41, 4, 109,0.7);
         }
     }
 }

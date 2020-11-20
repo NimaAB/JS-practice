@@ -1,7 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-$primery-body-color: white;
-$primery-main-color:#e5fdb8;  
-$btn-color:#3189d1;
-$btn-text-color: rgb(255, 250, 250);
-$output-text-color: rgb(116, 62, 62);
+@import 'darkmode';
+$primery-body-color: rgb(0, 0, 0);  
 $font-stack: 'Montserrat', sans-serif;
+
+$btn-text-color: set-text-color($primery-body-color);
+$btn-color: set-btn-color($primery-body-color);
+$btn-hover-color: set-btn-hover($primery-body-color);
+$btn-border-color: set-btn-border-color($primery-body-color);
+$output-text-color: set-text-color($primery-body-color);;
+$output-background-color: set-display-color($primery-body-color);
+
+:export {
+    primeryBodyColor: $primery-body-color;
+}

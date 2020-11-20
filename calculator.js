@@ -22,7 +22,7 @@ class Calculator{
             return; 
         }
         if(this.operation === '/' && prevNum === 0){
-            throw 'undefined'; 
+            throw 'Error!'; 
         }
         switch (this.operation){
             case '+': result = prevNum + curNum; break; 

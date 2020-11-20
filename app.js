@@ -1,3 +1,5 @@
+
+//calculator functionality:
 import {Calculator} from './Calculator.js';
 //selecting the elements: 
 //numbers
@@ -51,3 +53,13 @@ clearBtn.addEventListener('click',()=>{
     calc.clear();
     calc.updateDisplay();
 })
+
+
+//night mode:
+import primeryBodyColor from './sass/_config.scss';
+const colormode = document.querySelector('.colormode'); 
+colormode.addEventListener('click',colorMode()); 
+
+function colorMode(){
+    primeryBodyColor.primeryBodyColor = '#fff'; 
+}
