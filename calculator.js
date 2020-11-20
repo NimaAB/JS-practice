@@ -1,27 +1,58 @@
-
-//import * as math from './utils.js'
-
-//output section: 
-const asked = document.querySelector('.asked');
-console.log(asked.textContent) //geting the content.
-const content = asked.textContent; //should be parsed to number.  
-
-//operation btns:
-const plus = document.querySelector('.add');
-const minus = document.querySelector('.sub');
-const mulitply = document.querySelector('.mulitply');
-const div = document.querySelector('.div');
-//all btns: 
-const btns = document.querySelectorAll('.btn')
-
-//writnig to asked:
-let text = ""; 
-let numbers = []; 
-btns.forEach(btn => {
-    btn.addEventListener('click',()=>{
-        text += btn.textContent;
-        asked.innerHTML = `${text}`;
-        numbers = text.split('');
-        console.log(numbers);
-    });
-});
+class Calculator{
+    constructor(prevContent,curContent,curDisplay,prevDisplay){
+        this.curDisplay = curDisplay;
+        this.prevDisplay = prevDisplay;
+        this.prevContent = prevContent; 
+        this.curContent = curContent;
+        this.clearAll();
+    }
+    clearAll(){
+        this.prevContent = '';
+        this.curContent = '';
+        this.operation = undefined;
+    }
+    clear(){}
+    calulate(){
+        let result; 
+        const prevNum = parseFloat(this.prevContent);
+        const curNum = parseFloat(this.curContent);
+        if(isNaN(curNum)||isNaN(prevNum)) {
+            return; 
+        }
+        if(this.operation === '/' && prevNum === 0){
+            throw 'undefined'; 
+        }
+        switch (this.operation){
+            case '+': result = prevNum + curNum; break; 
+            case '-': result = prevNum - curNum; break;
+            case '*': result = prevNum * curNum; break; 
+            case '/': result = prevNum/curNum; break; 
+            default: return; 
+        }
+        this.curContent = result; 
+        this.operation = undefined; 
+        this.prevContent = '';
+    } 
+    appendNumber(number){
+        if(number==='.' && this.curContent.includes('.')){
+            return;
+        }
+        this.curContent = this.curContent.toString() + number.toString(); 
+    }
+    choosOperation(operation){
+        if(this.curContent===''){
+            return;
+        }
+        if(this.prevContent!==''){
+            this.calulate();
+        }
+        this.operation = operation;
+        this.prevContent = this.curContent; 
+        this.curContent = '';
+    }
+    updateDisplay(){
+        this.curDisplay.innerText = this.curContent;
+        this.prevDisplay.innerText = this.prevContent;
+    }
+}
+export {Calculator};

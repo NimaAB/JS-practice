@@ -13,34 +13,48 @@ body{
     font-size: 100%;
     font-family: $font-stack;
     background-color: $primery-body-color;
-    
-}
-.wrapper{
-    display: flex;
-    height: 100vh;
-    width: 100vw;
-    .main{
-        background-color: $primery-main-color;
-        width: 40vw;
-        height: 40vh;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(5,1fr);
-        margin: auto;
-        .result{
-            @extend %output;
-            font-size: 2em;
-            text-align: end;
-        }
-        .asked{
-            @extend %output;
-            font-size: 1.3em;
-            text-align: end;
-        }
-    }
 }
 
-%output {
-    color: $output-text-color;
+.grid-container{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(4,100px);
+    grid-template-rows: minmax(100px,auto) repeat(5,100px);
+    min-height: 100vh;
+    
+    button{
+        font-weight: bold;
+        font-size: 1.6rem;
+        color:rgb(26, 100, 124);
+        border: solid 2px whitesmoke; 
+        outline: none;
+        cursor: pointer;
+    }
+    button:hover{
+        background-color: lightblue;
+    }
+    .two-col{
+        grid-column: span 2;
+    }
+    .output{
+        grid-column: 1/-1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: flex-end;
+        background-color: lighten(lightblue,10%);
+        padding: 10px;
+        .prevOutput{
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: rgba(41, 4, 109,0.7);
+        }
+        .curOutput{
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: rgba(41, 4, 109,0.7);
+        }
+    }
 }
 
